@@ -1,7 +1,7 @@
 package com.example.sideproject.backend.domain.user;
 
 
-import com.example.sideproject.backend.domain.AuditingField;
+import com.example.sideproject.backend.domain.AuditingFieldEntity;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.util.Objects;
 @Entity
 @ToString
 @Table(name = "user")
-public class UserEntity extends AuditingField {
+public class UserEntity extends AuditingFieldEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

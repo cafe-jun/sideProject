@@ -14,11 +14,11 @@ import java.util.Optional;
 @EnableJpaAuditing
 @Configurable
 public class JpaConfig {
-    @Bean
-    public AuditorAware<String> auditorAware() {
-        return () -> Optional.ofNullable(SecurityContextHolder.getContext())
-                .map(SecurityContext::getAuthentication)
-                .filter(Authentication::isAuthenticated)
-                .map(Authentication::getPrincipal);
-    }
+//    @Bean
+//    public AuditorAware<String> auditorAware() {
+//        return () -> Optional.ofNullable(SecurityContextHolder.getContext())
+//                .map(SecurityContext::getAuthentication)
+//                .filter(Authentication::isAuthenticated)
+//                .filter(username -> username != null && !username)
+//    }
 }
