@@ -3,6 +3,7 @@ package com.example.sideproject.backend.domain.user;
 
 import com.example.sideproject.backend.domain.AuditingField;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 
@@ -37,7 +38,7 @@ public class UserEntity extends AuditingField {
     private boolean isSocial;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "socialProvider", nullable = false)
+    @Column(name = "social_provider", nullable = false)
     private SocialProviderType socialProviderType;
 
     @Enumerated(EnumType.STRING)
@@ -46,6 +47,7 @@ public class UserEntity extends AuditingField {
 
     protected UserEntity() {}
 
+    @Builder
     public UserEntity(String userId,String email,String username,String password,boolean isLock,boolean isSocial,SocialProviderType socialProviderType,UserRoleType roleType) {
         this.userId = userId;
         this.email = email;
