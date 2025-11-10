@@ -6,27 +6,36 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public record UserAccountDto(
-        String userId,
-        String userPassword,
+        Long userId,
         String email,
+        String password,
         String nickname,
-        String memo,
         LocalDateTime createdAt,
         String createdBy,
         LocalDateTime modifiedAt,
         String modifiedBy
 ) {
 
-
-    public static UserAccountDto of(String userId, String userPassword, String email, String nickname, String memo) {
-        return new UserAccountDto(userId, userPassword, email, nickname, memo, null, null, null, null);
-    }
-
-    public static UserAccountDto of(String userId, String userPassword, String email, String nickname, String memo, LocalDateTime createdAt, String createdBy, LocalDateTime modifiedAt, String modifiedBy) {
-        return new UserAccountDto(userId, userPassword, email, nickname, memo, createdAt, createdBy, modifiedAt, modifiedBy);
-    }
-
-    public static UserAccountDto from(UserEntity user) {
+    public static UserEntity of(Long userId, String email, String password, String nickname, String createdBy, String modifiedBy) {
+        return UserEntity.builder()
+                .userId(userId)
+                .password(password)
+                .nickname(nickname)
+                .build();
 
     }
+
+    public static UserAccountDto from(UserEntity userEntity) {
+        return new UserAccountDto(
+                userEntity.getUserId(),
+                userEntity.getEmail(),
+                userEntity.getPassword(),
+                userEntity.getNickname(),
+                userEntity.getCreatedAt(),
+                userEntity.getCreatedBy(),
+                userEntity.getModifiedAt(),
+                userEntity.getModifiedBy()
+        );
+    }
+
 }

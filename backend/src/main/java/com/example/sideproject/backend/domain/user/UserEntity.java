@@ -10,23 +10,20 @@ import lombok.ToString;
 import java.util.Objects;
 
 @Getter
+@ToString(callSuper = true)
+@Table(name = "users")
 @Entity
-@ToString
-@Table(name = "user")
 public class UserEntity extends AuditingFieldEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(name = "userId")
-    private String userId;
+    private Long userId;
 
     @Column(name = "email")
     private String email;
 
-    @Column(name="username", unique = true)
-    private String username;
+    @Column(name="nickname", unique = true)
+    private String nickname;
 
     @Column(name = "password", unique = true)
     private String password;
@@ -48,10 +45,10 @@ public class UserEntity extends AuditingFieldEntity {
     protected UserEntity() {}
 
     @Builder
-    public UserEntity(String userId,String email,String username,String password,boolean isLock,boolean isSocial,SocialProviderType socialProviderType,UserRoleType roleType) {
+    public UserEntity(Long userId,String email,String nickname,String password,boolean isLock,boolean isSocial,SocialProviderType socialProviderType,UserRoleType roleType) {
         this.userId = userId;
         this.email = email;
-        this.username = username;
+        this.nickname = nickname;
         this.password = password;
         this.isLock = isLock;
         this.isSocial = isSocial;
@@ -59,8 +56,8 @@ public class UserEntity extends AuditingFieldEntity {
         this.roleType = roleType;
     }
 
-    public static UserEntity of(String userId,String email,String username,String password,boolean isLock,boolean isSocial,SocialProviderType socialProviderType,UserRoleType roleType) {
-        return new  UserEntity(userId, email, username, password, isLock, isSocial, socialProviderType, roleType);
+    public static UserEntity of(Long userId,String email,String nickname,String password,boolean isLock,boolean isSocial,SocialProviderType socialProviderType,UserRoleType roleType) {
+        return new  UserEntity(userId, email, nickname, password, isLock, isSocial, socialProviderType, roleType);
     }
 
     @Override

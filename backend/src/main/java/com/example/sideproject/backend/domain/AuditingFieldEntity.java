@@ -22,20 +22,20 @@ public class AuditingFieldEntity {
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @CreatedDate
-    @Column(nullable = false, updatable = false)
-    protected LocalDateTime createdDate;
+    @Column(nullable = false, updatable = false,name = "created_at")
+    protected LocalDateTime createdAt;
 
     @CreatedBy
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false,name = "created_by")
     protected String createdBy;
 
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
     @LastModifiedDate
-    @Column(nullable = false, updatable = false)
-    protected LocalDateTime modifiedDate;
+    @Column(nullable = false, updatable = false,name = "modified_at")
+    protected LocalDateTime modifiedAt;
 
     @CreatedBy
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false, name = "modified_by")
     protected String modifiedBy;
 
 
