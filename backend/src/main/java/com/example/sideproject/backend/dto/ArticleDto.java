@@ -2,12 +2,11 @@ package com.example.sideproject.backend.dto;
 
 import com.example.sideproject.backend.domain.article.ArticleEntity;
 import com.example.sideproject.backend.domain.user.UserEntity;
-import com.example.sideproject.backend.dto.UserAccountDto;
 
 import java.time.LocalDateTime;
 
 public record ArticleDto (
-        Long id,
+        Long articleId,
         UserAccountDto userAccountDto,
         String title,
         String content,

@@ -25,16 +25,16 @@ public record UserAccountDto(
 
     }
 
-    public static UserAccountDto from(UserEntity userEntity) {
+    public static UserAccountDto from(UserEntity entity) {
         return new UserAccountDto(
-                userEntity.getUserId(),
-                userEntity.getEmail(),
-                userEntity.getPassword(),
-                userEntity.getNickname(),
-                userEntity.getCreatedAt(),
-                userEntity.getCreatedBy(),
-                userEntity.getModifiedAt(),
-                userEntity.getModifiedBy()
+                entity.getUserId(),
+                entity.getEmail(),
+                entity.getPassword(),
+                entity.getNickname(),
+                entity.getCreatedAt(),
+                entity.getCreatedBy(),
+                entity.getModifiedAt(),
+                entity.getModifiedBy()
         );
     }
 
