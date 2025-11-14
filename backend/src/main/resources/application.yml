@@ -15,3 +15,14 @@ spring:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
     open-in-view: false
+
+springdoc:
+  swagger-ui:
+    groups-order: desc
+    enabled: true
+    path: /api-test
+    tags-sorter: method
+
+  api-docs:
+    groups:
+      enabled: true

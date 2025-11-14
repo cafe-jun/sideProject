@@ -9,8 +9,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
+
+    private static final String BEARER_TOKEN_PREFIX = "Bearer";
+
     @Bean
     public OpenAPI openAPI() {
+        String securityJwtName = "JWT";
+
         return new OpenAPI()
                 .components(new Components())
                 .info(apiInfo());
@@ -18,7 +23,7 @@ public class SwaggerConfig {
 
     private Info apiInfo() {
         return new Info()
-                .title("API Test")
+                .title("SideProject API Swagger")
                 .description("Let's practice Swagger UI ")
                 .version("1.0.0");
 
